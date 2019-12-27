@@ -10,12 +10,34 @@
             <th>Main Contractor</th>
             <th>Area</th>
             <th>State</th>
-            <th class="status-head"> <span> Status </span> <svg aria-hidden="true" data-prefix="fas" data-icon="caret-down" class="caret-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" class="caret" d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"/></svg></th>
+            <th class="status-head">
+              <span>Status</span>
+              <svg
+                aria-hidden="true"
+                data-prefix="fas"
+                data-icon="caret-down"
+                class="caret-down"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+              >
+                <path
+                  fill="currentColor"
+                  class="caret"
+                  d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                />
+              </svg>
+            </th>
             <th>Sector</th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="project in projects" :key="project.id">
+          <tr
+            :class="[showByIndex ===index ? 'blur': '']"
+            v-for="(project, index) in projects"
+            :key="index"
+            @mouseover="hover = true, showByIndex = index"
+            @mouseleave="hover = false"
+          >
             <td>{{project.project_name}}</td>
             <td>{{project.developer}}</td>
             <td>{{project.main_contractor}}</td>
@@ -45,7 +67,9 @@ export default {
         message: "",
         context: "",
         show: false
-      }
+      },
+      hover: false,
+      showByIndex: null
     };
   },
   components: {
@@ -115,7 +139,6 @@ thead {
   width: 100%;
   color: #fff;
   background-color: #2a3a49;
- 
 
   th {
     padding: 1rem 0.5rem;
@@ -132,14 +155,12 @@ thead {
     }
   }
   .status-head {
-      display: flex;
-      justify-content: space-around
+    display: flex;
+    justify-content: space-around;
   }
-  .caret-down{
+  .caret-down {
     height: 1rem;
-    width: .6rem;
-
- 
+    width: 0.6rem;
   }
 }
 tbody {
@@ -155,6 +176,9 @@ tbody {
     text-align: start;
     &:first-child {
       border-right: solid 2px #c4c4c4;
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
   .status {
@@ -168,5 +192,11 @@ tbody {
     padding: 0;
     /* text-align: center; */
   }
+}
+.blur {
+  :nth-child(n+2){
+     filter: blur(0.5rem);
+  }
+ 
 }
 </style>
