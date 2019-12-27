@@ -47,11 +47,12 @@
               <span class="status">{{project.status}}</span>
             </td>
             <td>{{project.sector}}</td>
+            <ViewMore v-show="showByIndex ===index" :hover='hover' />
           </tr>
         </tbody>
       </table>
     </main>
-    <ViewMore />
+   
   </div>
 </template>
 
@@ -172,7 +173,7 @@ tbody {
   }
   td {
     font-size: 0.8rem;
-    padding: 1rem 0.6rem;
+    padding: 1.5rem 0.6rem;
     text-align: start;
     &:first-child {
       border-right: solid 2px #c4c4c4;
