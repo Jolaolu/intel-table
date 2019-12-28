@@ -13,9 +13,10 @@ export default {
 <style lang="scss" scoped>
 .toast {
   display: flex;
+  position: fixed;
   justify-content: center;
   width: 50%;
-  padding: 2em 1.5em;
+  padding: 1.5rem 2rem;
   border-radius: 5px;
   cursor: pointer;
   color: white;
