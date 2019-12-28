@@ -159,7 +159,6 @@ td {
 main {
   display: flex;
   justify-content: center;
-  /* overflow-x: auto; */
 }
 table {
   width: 100%;
@@ -243,16 +242,6 @@ tbody {
         width: fit-content;
     }
   }
-  td {
-    white-space: inherit
-  }
-  /* tbody {
-    tr {
-      display: table;
-      width: 100%;
-      table-layout: fixed;
-    }
-  } */
 }
 @media (min-width: 768px) and (max-width: 1024px) {
   #app {
@@ -267,14 +256,12 @@ tbody {
       white-space: nowrap;
     }
   }
-  td {
-    /* white-space: nowrap; */
-  }
+
 }
 @media (min-width: 1025px) {
   #app {
     width: 100%;
-    /* width: fit-content; */
+
   }
   body {
     width: 100%;
