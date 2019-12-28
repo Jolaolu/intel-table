@@ -228,6 +228,7 @@ tbody {
   #app {
     display: table;
     height: 100%;
+    padding: 1rem
   }
   body {
 
